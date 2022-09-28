@@ -77,7 +77,7 @@
     <body class="antialiased">
         <div class="container">
             <img class="logo" src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" height="60px" />
-            <h1>Community Dashboard</h1> <a class="update" href="/update" target="_blank">Update</a>
+            <h1>Community Dashboard</h1>
         </div>
         <div class="container">
 
