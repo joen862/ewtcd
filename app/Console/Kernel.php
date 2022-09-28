@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function() {
             $market = new Market;
             $market->updateMarketData();
-        })->everyMinute();
+        })->everyFiveMinutes();
 
         $schedule->call(function() {
             $supply = new Supply;
