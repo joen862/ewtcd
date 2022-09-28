@@ -4,9 +4,9 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Market;
 use App\Models\Wallet;
 use App\Models\Supply;
-use App\Models\Market;
 use App\Models\Bridged;
 
 class Kernel extends ConsoleKernel
@@ -24,6 +24,21 @@ class Kernel extends ConsoleKernel
             $market = new Market;
             $market->updateMarketData();
         })->everyMinute();
+
+        $schedule->call(function() {
+            $supply = new Supply;
+            $supply->updateSupplyData();
+        })->hourly();
+
+        $schedule->call(function() {
+            $bridged = new Bridged;
+            $bridged->updateBridgedData();
+        })->hourly();
+
+        $schedule->call(function() {
+            $wallet = new Wallet;
+            $wallet->updateBalances();
+        })->hourly();
 
     }
 
