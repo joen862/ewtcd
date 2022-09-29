@@ -282,16 +282,18 @@
                         <th>Category</th>
                         <th>Label</th>
                         <th>Address</th>
-                        <th>Token Allocation</th>
+                        <th>Start Balance</th>
                         <th>Current Balance</th>
+                        <th>Notes</th>
                     </tr>
                     @foreach($wallets as $wallet)
                     <tr>
                         <td>{{$wallet['category']}}</td>
                         <td>{{$wallet['label']}}</td>
-                        <td><a href="https://explorer.energyweb.org/address/{{$wallet['address']}}" target="_blank">{{substr($wallet['address'],0,8)}}-{{substr($wallet['address'],36,6)}}</a></td>
+                        <td><a href="https://explorer.energyweb.org/address/{{$wallet['address']}}/coin-balances#address-tabs" target="_blank">{{substr($wallet['address'],0,8)}}-{{substr($wallet['address'],36,6)}}</a></td>
                         <td class="monospace text-right">{{number_format($wallet['token_allocation'])}}</td>
                         <td class="monospace text-right">{{number_format($wallet['balance'])}}</td>
+                        <td>{{$wallet['notes']}}</td>
                     </tr>
                     @endforeach
                 </table>
