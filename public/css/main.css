@@ -45,7 +45,7 @@ a.update {
     text-decoration: underline;
 }
 
-.distribution th {
+th {
     background-color:#a566ff;
     color:#FFF;
     text-align: left;
@@ -53,7 +53,7 @@ a.update {
     padding:5px 10px;
 }
 
-.distribution td {
+td {
     padding:5px 10px;
     background-color:#f6f7f8;
 }
@@ -64,6 +64,18 @@ a.update {
 .distribution td.monospace {
     font-family: monospace;
     text-align: right;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.metrics td {
+    background: none;
 }
 
 .metrics td:first-child {
