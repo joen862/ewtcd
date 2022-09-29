@@ -11,12 +11,6 @@ class DashboardController extends Controller {
 
     public function index() {
 
-        //$test = new Wallet;
-        //$test->updateBalances();
-
-        // set ewt decimals for later use
-        $decimals = 1000000000000000000;
-
         // retrieve wallets and convert to easy usable array
         $wallets = Wallet::all()->toArray();
 
@@ -30,17 +24,6 @@ class DashboardController extends Controller {
         $supply = Supply::latest()->first();
         $bridged = Bridged::latest()->first();
 
-        /*foreach($this->wallets as $key => $wallet) {
-            $balance = json_decode($this->explorer(['module'=>'account','action'=>'balance','address'=>$wallet['address']]));
-
-            if(empty($wallet['balance'])) {
-                $this->wallets[$key]['balance']= $balance->result/$decimals;
-            }
-
-            $this->wallets[$key]['balance_message']= $balance->message;
-            $this->wallets[$key]['balance_status']= $balance->status;
-        }*/
-
         // get wallet category sums
         $data['total-staked'] = $this->sumOfCategory('Staking',$wallets);
         $data['founder2-total'] = $this->sumOfCategory('Founder2',$wallets);
@@ -53,7 +36,7 @@ class DashboardController extends Controller {
         // get/calculate other metrics
         $data['total'] = $supply->total_supply;
         $data['circulating-supply'] = $supply->circulating_supply;
-        $data['crc-staked'] = 6868845550865303576675966/$decimals;
+        $data['crc-staked'] = 6868845550865303576675966/1000000000000000000;
         $data['crc-rewards'] = $wallets['crc']['balance']-$data['crc-staked'];
         $data['crc-max-rewards'] = 578238; // [your amount]*((10,36/100+1)^(275/365)-1) << doesn't work in PHP, it does in Excel
 
@@ -63,7 +46,6 @@ class DashboardController extends Controller {
         $data['ewtb-last-week'] = $bridged->tx_last_week;
         $data['ewtb-last-month'] = $bridged->tx_last_month;
 
-
         return view('dashboard')
             ->with('data',$data)
             ->with('wallets',$wallets)
@@ -71,25 +53,18 @@ class DashboardController extends Controller {
     }
 
     private function sumOfCategory($category,$wallets) {
-
         $sum = 0;
-
         foreach($wallets as $wallet) {
             if($wallet['category'] == $category) {
                 $sum = $sum+$wallet['balance'];
             }
         }
-
         return $sum;
-
     }
 
     private function ethplorer($query) {
-
-        $api_key = 'EK-8dxmX-uiv5UAf-SyhAQ'; // << van Troll
-
+        $api_key = env("ETHPlorer_key");
         $data = Http::get('https://api.ethplorer.io/'.$query.'?apiKey='.$api_key);
-
         return $data->body();
 
     }
