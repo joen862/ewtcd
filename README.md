@@ -1,5 +1,6 @@
 ## EWTCD
 Energy Web Community Dashboard
-EWChain.io
 
-For more information contact https://twitter.com/joen862
+See live at https://ewchain.io
+
+For questions contact me at: https://twitter.com/joen862
