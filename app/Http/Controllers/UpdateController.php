@@ -10,7 +10,7 @@ class UpdateController extends Controller {
 
     public function update() {
 
-        $market = new Market;
+        /*$market = new Market;
         if($market->updateMarketData()) {
             dump('Market data updated');
         }
@@ -30,7 +30,7 @@ class UpdateController extends Controller {
             dump('Wallets updated');
         }
 
-        dump('Done! Everything is updated');
+        dump('Done! Everything is updated');*/
 
     }
 

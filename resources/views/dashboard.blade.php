@@ -21,9 +21,11 @@
             body {
                 font-family: 'Rajdhani', sans-serif;
                 background-color: #f6f7f8;
+                padding:20px;
             }
             .container {
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: left;
             }
 
@@ -33,18 +35,10 @@
                 color:#a566ff;
             }
 
-            td:first-child {
-                font-weight: bold;
-                padding-right: 20px;
-            }
-            td:nth-child(2) {
-                text-align: right;
-            }
-
             .block {
                 background-color: #FFF;
                 padding:20px;
-                margin: 0 20px 20px 20px;
+                margin: 20px 20px 20px 20px;
             }
 
             .logo img {
@@ -71,6 +65,44 @@
                 text-decoration: underline;
             }
 
+            .distribution th {
+                background-color:#a566ff;
+                color:#FFF;
+                text-align: left;
+                font-size: 20px;
+                padding:5px 10px;
+            }
+
+            .distribution td {
+                padding:5px 10px;
+                background-color:#f6f7f8;
+            }
+
+            .distribution td:nth-child(3),
+            .distribution td:nth-child(4),
+            .distribution td:nth-child(5),
+            .distribution td.monospace {
+                font-family: monospace;
+                text-align: right;
+            }
+
+            .metrics td:first-child {
+                font-weight: bold;
+                padding: 0 20px 0 0;
+            }
+            .metrics td:nth-child(2) {
+                text-align: right;
+                padding:0;
+                font-family: monospace;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+
 
         </style>
     </head>
@@ -80,8 +112,7 @@
             <h1>Community Dashboard</h1>
         </div>
         <div class="container">
-
-            <div class="block">
+            <div class="block metrics">
                 <h2>Supply</h2>
                 <table>
                     <tr>
@@ -137,7 +168,7 @@
 
                 </table>
             </div>
-            <div class="block">
+            <div class="block metrics">
                 <h2>Market ($USD)</h2>
                 <table>
                     <tr>
@@ -170,7 +201,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="block">
+            <div class="block metrics">
                 <h2>Bridged Token</h2>
                 <table>
                     <tr>
@@ -191,7 +222,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="block">
+            <div class="block metrics">
                 <h2>Exchanges</h2>
                 <table>
                     <tr>
@@ -235,7 +266,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="block">
+            <div class="block metrics">
                 <h2>Staking Pools</h2>
                 <table>
                     <tr>
@@ -266,18 +297,102 @@
                     </tr>
                     <tr>
                         <td>CRC Staked:</td>
-                        <td>{{number_format($data['crc-staked'])}}</td>
-                    </tr>
-                    <tr>
-                        <td>CRC Rewarded/max:</td>
-                        <td>{{number_format($data['crc-rewards'])}} / {{number_format($data['crc-max-rewards'])}}</td>
+                        <!--<td>{{number_format($data['crc-staked'])}}</td>-->
+                        <td>Coming...</td>
                     </tr>
                     <tr>
                         <td>CRC Pool Filled:</td>
-                        <td>{{number_format($data['crc-staked']/7500000*100,2)}}%</td>
+                        <!--<td>{{number_format($data['crc-staked']/7500000*100,2)}}%</td>-->
+                        <td>Coming...</td>
                     </tr>
                 </table>
             </div>
+            <div class="block distribution">
+                <h2>Token distribution</h2>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Token Allocation</th>
+                        <th>Current Balance</th>
+                        <th>Moved</th>
+                    </tr>
+                    <tr>
+                        <td>EWF Operating Fund</td>
+                        <td>Tokens for EWF operations</td>
+                        <td>10,901,792</td>
+                        <td rowspan="2">{{number_format($wallets['team']['balance'])}}</td>
+                        <td rowspan="2">{{number_format(20901792-$wallets['team']['balance'])}}</td>
+                    </tr>
+                    <tr>
+                        <td>EWF Endowment</td>
+                        <td>Tokens intended for additional technology development in support of EWF mission</td>
+                        <td>10,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>EWF Community Fund</td>
+                        <td>Community fund tokens will be used to support development of new technologies in the EWF ecosystem</td>
+                        <td>37,900,000</td>
+                        <td>{{number_format($wallets['community']['balance'])}}</td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td>Validator Block Reward</td>
+                        <td>Allocated to block validation rewards, and released continuously (on a per-block basis) over a period of 10 years in a logarithmic curve</td>
+                        <td>10,000,000</td>
+                        <td>{{number_format($data['active-validators']+$data['inactive-validators'])}}</td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Founder Tokens</td>
+                        <td rowspan="2">Allocated to EWF co-founders Rocky Mountain Institute and GridSingularity</td>
+                        <td rowspan="2">10,000,000</td>
+                        <td>5,000,000</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td class="monospace">{{number_format($data['founder2-total'])}}</td>
+                        <td class="monospace">{{number_format(5000000-$data['founder2-total'])}}</td>
+                    </tr>
+                    <tr>
+                        <td>Round A Affiliates</td>
+                        <td>Allocated to the 10 initial Affiliates of EWF</td>
+                        <td>5,000,000</td>
+                        <td>{{number_format($data['rounda-total'])}}</td>
+                        <td>{{number_format(5000000-$data['rounda-total'])}}</td>
+                    </tr>
+                    <tr>
+                        <td>Round B Affiliates</td>
+                        <td>Allocated to Affiliates who joined EWF in a B round of fundraising</td>
+                        <td>15,863,208</td>
+                        <td rowspan="2">{{number_format($data['roundbc-total'])}}</td>
+                        <td rowspan="2">{{number_format(16198208-$data['roundbc-total'])}}</td>
+                    </tr>
+                    <tr>
+                        <td>Round C Affiliates</td>
+                        <td>Allocated to Affiliates who joined EWF</td>
+                        <td>335,000</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="text-align:right;">Total</th>
+                        <th style="font-family:monospace; text-align:right;">100,000,000</th>
+                        <th colspan="2"></th>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <div class="block">
+                <h2>Tracked wallets</h2>
+                <?php foreach($wallets as $wallet) { ?>
+
+                <p>{{$wallet['category']}} - <b>{{$wallet['label']}}</b> - <a href="https://explorer.energyweb.org/address/{{$wallet['address']}}" target="_blank">{{$wallet['address']}}</a></p>
+
+                <?php } ?>
+
+            </div>
+
         </div>
         <?php //dump($wallets); ?>
     </body>
