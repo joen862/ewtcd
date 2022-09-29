@@ -1,0 +1,84 @@
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #f6f7f8;
+    padding:20px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+h2 {
+    margin:0 0 20px 0;
+    padding:0;
+    color:#a566ff;
+}
+
+.block {
+    background-color: #FFF;
+    padding:20px;
+    margin: 20px 20px 20px 20px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.logo {
+    margin:20px;
+}
+
+div:has(.logo) h1 {
+    font-size: 20px;
+    line-height: 60px;
+    font-weight: normal;
+    margin:20px;
+    padding:0;
+}
+
+a.update {
+    line-height: 60px;
+    margin:20px;
+    font-size: 10px;
+    color:#999;
+    text-decoration: underline;
+}
+
+.distribution th {
+    background-color:#a566ff;
+    color:#FFF;
+    text-align: left;
+    font-size: 20px;
+    padding:5px 10px;
+}
+
+.distribution td {
+    padding:5px 10px;
+    background-color:#f6f7f8;
+}
+
+.distribution td:nth-child(3),
+.distribution td:nth-child(4),
+.distribution td:nth-child(5),
+.distribution td.monospace {
+    font-family: monospace;
+    text-align: right;
+}
+
+.metrics td:first-child {
+    font-weight: bold;
+    padding: 0 20px 0 0;
+}
+.metrics td:nth-child(2) {
+    text-align: right;
+    padding:0;
+    font-family: monospace;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
