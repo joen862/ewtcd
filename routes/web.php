@@ -16,4 +16,3 @@ use App\Http\Controllers\UpdateController;
 */
 
 Route::get('/', [DashboardController::class,'index']);
-//Route::get('/update', [UpdateController::class,'update']);
