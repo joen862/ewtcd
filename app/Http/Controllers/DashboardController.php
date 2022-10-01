@@ -49,6 +49,8 @@ class DashboardController extends Controller {
         $data['founder2-total'] = $this->sumOfCategory('Founder2',$wallets);
         $data['rounda-total'] = $this->sumOfCategory('Round A Affiliates',$wallets);
         $data['roundbc-total'] = $this->sumOfCategory('Round B/C Affiliates',$wallets);
+        $data['active-validators-count'] = $this->countOfCategory('Active Validators',$wallets);
+        $data['inactive-validators-count'] = $this->countOfCategory('Inactive Validators',$wallets);
         $data['active-validators'] = $this->sumOfCategory('Active Validators',$wallets);
         $data['inactive-validators'] = $this->sumOfCategory('Inactive Validators',$wallets);
         $data['total-exchanges'] = $this->sumOfCategory('Exchanges',$wallets);
@@ -94,6 +96,16 @@ class DashboardController extends Controller {
             }
         }
         return $sum;
+    }
+
+    private function countOfCategory($category,$wallets) {
+        $count = 0;
+        foreach($wallets as $wallet) {
+            if($wallet['category'] == $category) {
+                $count++;
+            }
+        }
+        return $count;
     }
 
     private function ethplorer($query) {

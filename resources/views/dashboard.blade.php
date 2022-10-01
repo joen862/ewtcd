@@ -189,6 +189,20 @@
                 <h2>Validators</h2>
                 <table>
                     <tr>
+                        <td>Active nodes/miners:</td>
+                        <td>{{number_format($data['active-validators-count'])}}</td>
+                    </tr>
+                    <tr>
+                        <td>Inactive nodes/miners:</td>
+                        <td>{{number_format($data['inactive-validators-count'])}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">EWT Hold by:</td>
+                    </tr>
+                    <tr>
                         <td>Active Validators:</td>
                         <td>{{number_format($data['active-validators'])}}</td>
                     </tr>
