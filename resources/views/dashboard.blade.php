@@ -116,6 +116,10 @@
                         <td>{{number_format($wallets['kucoin-hot']['balance'])}}</td>
                     </tr>
                     <tr>
+                        <td>Bitmart:</td>
+                        <td>{{number_format($wallets['bitmart']['balance'])}}</td>
+                    </tr>
+                    <tr>
                         <td>Hotbit:</td>
                         <td>{{number_format($wallets['hotbit']['balance'])}}</td>
                     </tr>
@@ -126,10 +130,6 @@
                     <tr>
                         <td>Liquid:</td>
                         <td>{{number_format($wallets['liquid']['balance'])}}</td>
-                    </tr>
-                    <tr>
-                        <td>Bitmart:</td>
-                        <td>{{number_format($wallets['bitmart']['balance'])}}</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
