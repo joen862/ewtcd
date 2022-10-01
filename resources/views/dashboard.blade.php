@@ -129,7 +129,7 @@
                     </tr>
                     <tr>
                         <td>Bitmart:</td>
-                        <td>??</td>
+                        <td>{{number_format($wallets['bitmart']['balance'])}}</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
