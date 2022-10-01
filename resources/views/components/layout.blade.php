@@ -46,7 +46,7 @@
                 <div class="payoff">
                     <a href="/">EWChain.io</a><br />
                     Build with <i class="fa fa-normal fa-heart" style="color:#a566ff;"></i> for $EWT <i class="fa fa-duotone fa-rocket-launch" style="color:#a566ff;"></i><br />
-                    For updates please follow: <a href="https://twitter.com/joen862">@joen862</a></div>
+                    For updates please follow: <a href="https://twitter.com/joen862" target="_blank">@joen862</a> or <a href="https://github.com/joen862/ewtcd" target="_blank">check out GitHub</a></div>
             </div>
 
         </div>
