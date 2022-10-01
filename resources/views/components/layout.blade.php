@@ -45,7 +45,6 @@
                 <div class="logo"><img src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" height="60px" /></div>
                 <div class="payoff">
                     <a href="/">EWChain.io</a><br />
-                    Energy Web (unofficial) Community Dashboard (beta)<br />
                     Build with <i class="fa fa-normal fa-heart" style="color:#a566ff;"></i> for $EWT <i class="fa fa-duotone fa-rocket-launch" style="color:#a566ff;"></i><br />
                     For updates please follow: <a href="https://twitter.com/joen862">@joen862</a></div>
             </div>
