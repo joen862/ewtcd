@@ -3,10 +3,57 @@ body {
     background-color: #f6f7f8;
     padding:20px;
 }
+
 .container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.header {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: left;
+    margin: 0 0 20px 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 0 20px 0;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.nav {
+    line-height: 60px;
+    font-size: 20px;
+}
+
+div.payoff {
+    text-align: right;
+}
+
+div.payoff h1,
+div.payoff {
+    font-size: 20px;
+    font-weight: normal;
+    padding:0;
+    margin:0;
+}
+
+div.payoff a {
+    font-weight: bold;
+}
+
+div.metrics-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap:20px;
+    margin: 0 0 20px 0;
 }
 
 h2 {
@@ -18,31 +65,26 @@ h2 {
 .block {
     background-color: #FFF;
     padding:20px;
-    margin: 20px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px -5px rgba(0,0,0,.1);
 }
 
-.logo img {
-    height: 60px;
+div.metrics-container .block {
+    width:520px;
+    min-width: 300px;
 }
 
-.logo {
-    margin:20px;
+div.distribution-container {
+    margin: 0 0 20px 0;
 }
 
-div:has(.logo) h1 {
-    font-size: 20px;
-    line-height: 60px;
-    font-weight: normal;
-    margin:20px;
-    padding:0;
+div.wallets-container {
+    margin: 0 0 20px 0;
 }
 
-a.update {
-    line-height: 60px;
-    margin:20px;
-    font-size: 10px;
-    color:#999;
-    text-decoration: underline;
+div.distribution-container table,
+div.wallets-container table {
+    width: 100%;
 }
 
 th {
@@ -58,10 +100,10 @@ td {
     background-color:#f6f7f8;
 }
 
-.distribution td:nth-child(3),
-.distribution td:nth-child(4),
-.distribution td:nth-child(5),
-.distribution td.monospace {
+.distribution-container .block td:nth-child(3),
+.distribution-container .block td:nth-child(4),
+.distribution-container .block td:nth-child(5),
+.distribution-container .block td.monospace {
     font-family: monospace;
     text-align: right;
 }
@@ -74,18 +116,25 @@ td {
     text-align: right;
 }
 
-.metrics td {
+.metrics-container .block td {
     background: none;
 }
 
-.metrics td:first-child {
+.metrics-container .block td:first-child {
     font-weight: bold;
     padding: 0 20px 0 0;
 }
-.metrics td:nth-child(2) {
+
+.metrics-container .block td:nth-child(2) {
     text-align: right;
     padding:0;
     font-family: monospace;
+}
+
+
+i.fa {
+    font-size:80%;
+    cursor: pointer;
 }
 
 a {

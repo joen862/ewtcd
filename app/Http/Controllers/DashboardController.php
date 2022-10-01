@@ -72,6 +72,20 @@ class DashboardController extends Controller {
             ->with('market',$market_data);
     }
 
+    public function wallets() {
+
+        // retrieve wallets and convert to easy usable array
+        $wallets = Wallet::all()->toArray();
+
+        foreach($wallets as $key => $wallet) {
+            $wallets[$wallet['slug']] = $wallet;
+            unset($wallets[$key]);
+        }
+
+        return view('wallets')
+            ->with('wallets',$wallets);
+    }
+
     private function sumOfCategory($category,$wallets) {
         $sum = 0;
         foreach($wallets as $wallet) {
