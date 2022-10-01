@@ -16,3 +16,4 @@ use App\Http\Controllers\UpdateController;
 */
 
 Route::get('/', [DashboardController::class,'index']);
+Route::get('/wallets', [DashboardController::class,'wallets']);
