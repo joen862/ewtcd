@@ -1,5 +1,6 @@
 <x-layout>
 
+    <div class="container grid grid-dashboard">
         <div class="metrics-container">
             <div class="block">
                 <h2>Supply (EWT)</h2>
@@ -292,5 +293,5 @@
 
             </div>
         </div>
-
+    </div>
 </x-layout>
