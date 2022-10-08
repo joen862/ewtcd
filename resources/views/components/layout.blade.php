@@ -31,24 +31,38 @@
 
     </head>
     <body class="antialiased">
-        <div class="container">
 
-        <div class="header">
-            <div class="logo"><img src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" height="60px" /></div>
-            <div class="nav"><a href="/">Dashboard</a> | <a href="/wallets">Wallets</a></div>
-            <div class="payoff"><h1><a href="/">EWChain.io</a><br />Energy Web (unofficial) Community Dashboard (beta)</h1></div>
+        <div class="header-bar">
+            <div class="container grid grid-header">
+                <div class="logo">
+                    <img src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" />
+                </div>
+                <div class="title">
+                    <h1><a href="/">EWChain.io</a> | Energy Web's unofficial community dashboard</h1>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <li><a href="/">Dashboard</a></li>
+                        <li><a href="/wallets">Wallets</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         {{ $slot }}
 
-        <div class="footer">
-                <div class="logo"><img src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" height="60px" /></div>
-                <div class="payoff">
+        <div class="footer-bar">
+            <div class="container grid grid-footer">
+                <div class="logo">
+                    <img src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" />
+                </div>
+                <div class="credits">
                     <a href="/">EWChain.io</a><br />
                     Build with <i class="fa fa-normal fa-heart" style="color:#a566ff;"></i> for $EWT <i class="fa fa-duotone fa-rocket-launch" style="color:#a566ff;"></i><br />
-                    For updates please follow: <a href="https://twitter.com/joen862" target="_blank">@joen862</a> or <a href="https://github.com/joen862/ewtcd" target="_blank">check out GitHub</a></div>
+                    For updates please follow: <a href="https://twitter.com/joen862" target="_blank">@joen862</a> or <a href="https://github.com/joen862/ewtcd" target="_blank">check out GitHub</a>
+                </div>
             </div>
-
         </div>
+
     </body>
 </html>
