@@ -44,6 +44,7 @@ class CheckBlocks extends Command
             if(Wallet::where('address',$block_data->miner)->doesntExist()) {
                 $miner = new Wallet;
                 $miner->label = "Unknown miner";
+                $miner->slug = substr($block_data->miner,0,6);
                 $miner->category = "Active Validators";
                 $miner->address = $block_data->miner;
                 $miner->balance = $this->getBalance($block_data->miner);
