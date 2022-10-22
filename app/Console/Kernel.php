@@ -20,6 +20,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        $schedule->command('checkblocks')->everyMinute();
+
         $schedule->call(function() {
             $market = new Market;
             $market->updateMarketData();

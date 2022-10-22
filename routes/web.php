@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RPCController;
 use App\Http\Controllers\UpdateController;
 
 /*
@@ -17,3 +18,4 @@ use App\Http\Controllers\UpdateController;
 
 Route::get('/', [DashboardController::class,'index']);
 Route::get('/wallets', [DashboardController::class,'wallets']);
+Route::get('/rpc', [RPCController::class,'index']);
