@@ -18,4 +18,6 @@ use App\Http\Controllers\UpdateController;
 
 Route::get('/', [DashboardController::class,'index']);
 Route::get('/wallets', [DashboardController::class,'wallets']);
-Route::get('/rpc', [RPCController::class,'index']);
+Route::get('/validators', [DashboardController::class,'validators']);
+
+//Route::get('/rpc', [RPCController::class,'index']);

@@ -44,6 +44,7 @@
                     <ul>
                         <li><a href="/">Dashboard</a></li>
                         <li><a href="/wallets">Wallets</a></li>
+                        <li><a href="/validators">Validators</a></li>
                     </ul>
                 </div>
             </div>

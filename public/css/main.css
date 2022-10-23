@@ -1,7 +1,8 @@
 
 
-
-/* general styles */
+/*----------------*/
+/* GENERAL STYLES */
+/*----------------*/
 
 html {
     font-size: 12px;
@@ -36,9 +37,14 @@ a:hover {
     text-decoration: underline;
 }
 
+table {
+    width:100%;
+}
 
 
-/* Header and Footer styles */
+/*--------------------------*/
+/* HEADER AND FOOTER STYLES */
+/*--------------------------*/
 
 .header-bar, .footer-bar {
     background-color:#FFF;
@@ -94,7 +100,7 @@ a:hover {
 .grid-header .navigation ul {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding:0;
     margin:0;
     list-style: none;
@@ -190,29 +196,31 @@ div.wallets-container table {
     width: 100%;
 }
 
-th {
+table.show-table th {
     background-color:#a566ff;
     color:#FFF;
     text-align: left;
-    font-size: 20px;
+    font-size: 1.2rem;
     padding:5px 10px;
 }
 
-td {
+table.show-table td {
     padding:5px 10px;
     background-color:#f6f7f8;
 }
 
-.distribution-container .block td:nth-child(3),
-.distribution-container .block td:nth-child(4),
-.distribution-container .block td:nth-child(5),
-.distribution-container .block td.monospace {
+td.monospace,
+th.monospace {
     font-family: monospace;
     text-align: right;
 }
 
-.monospace {
-    font-family: monospace;
+td.column-title {
+    font-weight: bold;
+}
+
+td.right {
+    text-align: right;
 }
 
 .text-right {
@@ -223,15 +231,14 @@ td {
     background: none;
 }
 
-.metrics-container .block td:first-child {
+td.row-title {
     font-weight: bold;
     padding: 0 20px 0 0;
 }
 
-.metrics-container .block td:nth-child(2) {
-    text-align: right;
-    padding:0;
-    font-family: monospace;
+td.row-subtitle {
+    font-weight: normal;
+    padding: 0 20px 0 20px;
 }
 
 

@@ -64,31 +64,34 @@ class CheckBlocks extends Command
 
                 foreach($block_data->transactions as $transaction_data) {
 
-                    $tx = new Transaction;
-                    $tx->hash = $transaction_data->hash;
-                    $tx->blockNumber = hexdec($transaction_data->blockNumber);
-                    $tx->from = $transaction_data->from;
-                    $tx->to = $transaction_data->to;
-                    $tx->value = hexdec($transaction_data->value)/1000000000000000000;
-                    $tx->condition = $transaction_data->condition;
-                    $tx->creates = $transaction_data->creates;
-                    $tx->gas = hexdec($transaction_data->gas);
-                    $tx->gasPrice = hexdec($transaction_data->gasPrice);
-                    $tx->input = $transaction_data->input;
-                    $tx->nonce = hexdec($transaction_data->nonce);
-                    $tx->publicKey = $transaction_data->publicKey;
-                    $tx->r = $transaction_data->r;
-                    $tx->raw = $transaction_data->raw;
-                    $tx->s = $transaction_data->s;
-                    $tx->standardV = isset($transaction_data->standardV) ? hexdec($transaction_data->standardV) : '';
-                    $tx->transactionIndex = hexdec($transaction_data->transactionIndex);
-                    $tx->type = hexdec($transaction_data->type);
-                    $tx->blockHash = $transaction_data->blockHash;
-                    $tx->v = hexdec($transaction_data->v);
-                    $tx->chainId = hexdec($transaction_data->chainId);
-                    $tx->save();
+                    if($transaction_data->value > 0) {
+                        $tx = new Transaction;
+                        $tx->hash = $transaction_data->hash;
+                        $tx->blockNumber = hexdec($transaction_data->blockNumber);
+                        $tx->from = $transaction_data->from;
+                        $tx->to = $transaction_data->to;
+                        $tx->value = hexdec($transaction_data->value)/1000000000000000000;
+                        $tx->condition = $transaction_data->condition;
+                        $tx->creates = $transaction_data->creates;
+                        $tx->gas = hexdec($transaction_data->gas);
+                        $tx->gasPrice = hexdec($transaction_data->gasPrice);
+                        $tx->input = $transaction_data->input;
+                        $tx->nonce = hexdec($transaction_data->nonce);
+                        $tx->publicKey = $transaction_data->publicKey;
+                        $tx->r = $transaction_data->r;
+                        $tx->raw = $transaction_data->raw;
+                        $tx->s = $transaction_data->s;
+                        $tx->standardV = isset($transaction_data->standardV) ? hexdec($transaction_data->standardV) : '';
+                        $tx->transactionIndex = hexdec($transaction_data->transactionIndex);
+                        $tx->type = hexdec($transaction_data->type);
+                        $tx->blockHash = $transaction_data->blockHash;
+                        $tx->v = hexdec($transaction_data->v);
+                        $tx->chainId = hexdec($transaction_data->chainId);
 
-                    $this->info('Transaction added: '.$transaction_data->hash);
+                        $tx->save();
+
+                        $this->info('Transaction added: '.$transaction_data->hash);
+                    }
 
                 }
             }
