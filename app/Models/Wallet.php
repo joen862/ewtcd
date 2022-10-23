@@ -13,6 +13,11 @@ class Wallet extends Model
 {
     use HasFactory;
 
+    public function validator() {
+        return $this->belongsTo(Validator::class);
+    }
+
+
     public function updateBalances() {
         foreach($this->all() as $wallet) {
             $wallet->balance = $this->fetchBalance($wallet->address);

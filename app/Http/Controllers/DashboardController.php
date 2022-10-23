@@ -6,6 +6,7 @@ use App\Models\Wallet;
 use App\Models\Market;
 use App\Models\Supply;
 use App\Models\Bridged;
+use App\Models\Validator;
 
 class DashboardController extends Controller {
 
@@ -49,11 +50,21 @@ class DashboardController extends Controller {
         $data['founder2-total'] = $this->sumOfCategory('Founder2',$wallets);
         $data['rounda-total'] = $this->sumOfCategory('Round A Affiliates',$wallets);
         $data['roundbc-total'] = $this->sumOfCategory('Round B/C Affiliates',$wallets);
-        $data['active-validators-count'] = $this->countOfCategory('Active Validators',$wallets);
-        $data['inactive-validators-count'] = $this->countOfCategory('Inactive Validators',$wallets);
-        $data['active-validators'] = $this->sumOfCategory('Active Validators',$wallets);
-        $data['inactive-validators'] = $this->sumOfCategory('Inactive Validators',$wallets);
         $data['total-exchanges'] = $this->sumOfCategory('Exchanges',$wallets);
+
+        // get miner counts
+        $data['active-miners-count'] = Wallet::where('category','Miner')->whereRelation('Validator','active',true)->count();
+        $data['inactive-miners-count']= Wallet::where('category','Miner')->whereRelation('Validator','active',false)->count();
+        $data['unknown-miners-count']= Wallet::where('category','Miner')->doesntHave('Validator')->count();
+
+        // get miner holdings
+        $data['active-miners-holding'] = Wallet::where('category','Miner')->whereRelation('Validator','active',true)->sum('balance');
+        $data['inactive-miners-holding']= Wallet::where('category','Miner')->whereRelation('Validator','active',false)->sum('balance');
+        $data['unknown-miners-holding']= Wallet::where('category','Miner')->doesntHave('Validator')->sum('balance');
+
+        // get validator counts
+        $data['active-validators-count'] = Validator::where('active',true)->count();
+        $data['inactive-validators-count'] = Validator::where('active',false)->count();;
 
         // get/calculate other metrics
         $data['total'] = $supply_data->total_supply;
@@ -87,6 +98,13 @@ class DashboardController extends Controller {
         return view('wallets')
             ->with('wallets',$wallets);
     }
+
+    public function validators() {
+
+
+        return view('validators');
+    }
+
 
     private function sumOfCategory($category,$wallets) {
         $sum = 0;
