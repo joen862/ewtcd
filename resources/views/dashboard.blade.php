@@ -30,8 +30,8 @@
                         <td class="monospace">{{number_format($wallets['community']['balance'])}}</td>
                     </tr>
                     <tr>
-                        <td class="row-subtitle">Founder1:</td>
-                        <td class="monospace">{{number_format($wallets['founder1']['balance']+$wallets['holding']['balance'])}}</td>
+                        <td class="row-subtitle">Distribution Contract (Grid Singularity):</td>
+                        <td class="monospace">{{number_format($wallets['holding']['balance'])}}</td>
                     </tr>
 
                     <tr>
@@ -42,7 +42,7 @@
                         <td colspan="2" class="row-title">In Circulation  <i class="fa fa-light fa-circle-info" title="All other wallets that are considered in circulation. Lockup periods have ended, so these funds can move into general circulation at any moment."></td>
                     </tr>
                     <tr>
-                        <td class="row-subtitle">Founder2:</td>
+                        <td class="row-subtitle">RMI:</td>
                         <td class="monospace">{{number_format($data['founder2-total'])}}</td>
                     </tr>
                     <tr>
@@ -63,11 +63,11 @@
                     </tr>
 
                     <tr>
-                        <td class="row-title">Circulating Supply <i class="fa fa-light fa-circle-info" title="The total circulating supply of EWT is fetched from https://supply.energyweb.org and is confirmed by EW to be correct. It seems to be the tot supply minus the Team, Community Fund and Holding (unclaimed Founder 1) wallets."></td>
+                        <td class="row-title">Circulating Supply <i class="fa fa-light fa-circle-info" title="The total circulating supply of EWT is fetched from https://supply.energyweb.org and is confirmed by EW to be correct. It seems to be the tot supply minus the Team, Community Fund and Holding (unclaimed Grid Singularity) wallets."></td>
                         <td class="monospace">{{number_format($data['circulating-supply'])}}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">(Circulating = Total - Team - Community - Founder1)</td>
+                        <td colspan="2">Circulating = Total - Team - Community - Distribution</td>
                     </tr>
 
 
@@ -129,28 +129,24 @@
                 <h2>Exchanges (EWT)</h2>
                 <table>
                     <tr>
+                        <td class="row-title">Kucoin:</td>
+                        <td class="monospace">{{number_format($wallets['kucoin-cold']['balance']+$wallets['kucoin-hot']['balance']+$wallets['kucoin-hot2']['balance'])}}</td>
+                    </tr>
+                    <tr>
                         <td class="row-title">Kraken:</td>
                         <td class="monospace">{{number_format($wallets['kraken']['balance'])}}</td>
-                    </tr>
-                    <tr>
-                        <td class="row-title">Kucoin (cold):</td>
-                        <td class="monospace">{{number_format($wallets['kucoin-cold']['balance'])}}</td>
-                    </tr>
-                    <tr>
-                        <td class="row-title">Kucoin (hot):</td>
-                        <td class="monospace">{{number_format($wallets['kucoin-hot']['balance'])}}</td>
                     </tr>
                     <tr>
                         <td class="row-title">Bitmart:</td>
                         <td class="monospace">{{number_format($wallets['bitmart']['balance'])}}</td>
                     </tr>
                     <tr>
-                        <td class="row-title">Hotbit:</td>
-                        <td class="monospace">{{number_format($wallets['hotbit']['balance'])}}</td>
-                    </tr>
-                    <tr>
                         <td class="row-title">Gate.io:</td>
                         <td class="monospace">{{number_format($wallets['gate']['balance'])}}</td>
+                    </tr>
+                    <tr>
+                        <td class="row-title">Hotbit:</td>
+                        <td class="monospace">{{number_format($wallets['hotbit']['balance'])}}</td>
                     </tr>
                     <tr>
                         <td class="row-title">Liquid:</td>
@@ -198,16 +194,6 @@
                     <tr>
                         <td colspan="2">&nbsp;</td>
                     </tr>
-                    <tr>
-                        <td class="row-title">CRC Staked:</td>
-                        <!--<td>{{number_format($data['crc-staked'])}}</td>-->
-                        <td>Coming...</td>
-                    </tr>
-                    <tr>
-                        <td class="row-title">CRC Pool Filled:</td>
-                        <!--<td>{{number_format($data['crc-staked']/7500000*100,2)}}%</td>-->
-                        <td>Coming...</td>
-                    </tr>
                 </table>
             </div>
             <div class="block">
@@ -250,8 +236,8 @@
                         <th>Category</th>
                         <th>Description</th>
                         <th>Token Allocation <i class="fa fa-normal fa-circle-info" title="This is the amount of EWT that was given by the holding contract. See: https://explorer.energyweb.org/address/0x1204700000000000000000000000000000000004/contracts#address-tabs"></i></th>
-                        <th>Current Balance  <i class="fa fa-normal fa-circle-info" title="The current balance of the wallet that received the Token Allocation OR the sum of wallets it is distributed to. E.g. in case of Founder2"></i></th>
-                        <th>Moved <i class="fa fa-normal fa-circle-info" title="Moved is the difference between the Token Allocation and the Current Balance. These tokens have moved to subsequent addresses. It does not neccesarily mean the tokens have been moved to an exchange or sold. In case of Founder2 the tokens were distributed over 10 wallets that are tracked. We try to analyse more wallets."></i></th>
+                        <th>Current Balance  <i class="fa fa-normal fa-circle-info" title="The current balance of the wallet that received the Token Allocation OR the sum of wallets it is distributed to. E.g. in case of RMI"></i></th>
+                        <th>Moved <i class="fa fa-normal fa-circle-info" title="Moved is the difference between the Token Allocation and the Current Balance. These tokens have moved to subsequent addresses. It does not neccesarily mean the tokens have been moved to an exchange or sold. In case of RMI the tokens were distributed over 10 wallets that are tracked. We try to analyse more wallets."></i></th>
                     </tr>
                     <tr>
                         <td>EWF Operating Fund</td>
@@ -281,7 +267,7 @@
                     </tr>
                     <tr>
                         <td rowspan="2">Founder Tokens</td>
-                        <td rowspan="2">Allocated to EWF co-founders Rocky Mountain Institute and GridSingularity</td>
+                        <td rowspan="2">Allocated to EWF co-founders Rocky Mountain Institute and Grid Singularity</td>
                         <td rowspan="2" class="monospace">10,000,000</td>
                         <td class="monospace">5,000,000</td>
                         <td class="monospace">0</td>
