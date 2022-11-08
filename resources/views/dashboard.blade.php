@@ -42,7 +42,7 @@
                         <td colspan="2" class="row-title">In Circulation  <i class="fa fa-light fa-circle-info" title="All other wallets that are considered in circulation. Lockup periods have ended, so these funds can move into general circulation at any moment."></td>
                     </tr>
                     <tr>
-                        <td class="row-subtitle">RMI:</td>
+                        <td class="row-subtitle">Rocky Mountain Institute:</td>
                         <td class="monospace">{{number_format($data['founder2-total'])}}</td>
                     </tr>
                     <tr>
