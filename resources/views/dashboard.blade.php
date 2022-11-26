@@ -138,7 +138,7 @@
                     </tr>
                     <tr>
                         <td class="row-title">Bitmart:</td>
-                        <td class="monospace">{{number_format($wallets['bitmart']['balance'])}}</td>
+                        <td class="monospace">{{number_format($wallets['bitmart']['balance']+$wallets['bitmart2']['balance'])}}</td>
                     </tr>
                     <tr>
                         <td class="row-title">Gate.io:</td>
