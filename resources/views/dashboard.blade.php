@@ -153,6 +153,10 @@
                         <td class="monospace">{{number_format($wallets['liquid']['balance'])}}</td>
                     </tr>
                     <tr>
+                        <td class="row-title">Bitrue:</td>
+                        <td class="monospace">{{number_format($wallets['bitrue']['balance'])}}</td>
+                    </tr>
+                    <tr>
                         <td colspan="2">&nbsp;</td>
                     </tr>
                     <tr>
