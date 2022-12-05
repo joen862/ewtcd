@@ -16,7 +16,8 @@ html {
 
 body {
     font-family: 'Rajdhani', sans-serif;
-    background-color: #f6f7f8;
+    background-color: #f8fafb;
+    color: #452E66;
 }
 
 h2 {
@@ -48,12 +49,14 @@ table {
 
 .header-bar, .footer-bar {
     background-color:#FFF;
-    box-shadow: 0px 0px 10px -5px rgba(0,0,0,.1);
-    padding: 1rem;
+    box-shadow: 0px 4px 10px rgb(0 0 0 / 8%);
+    padding: 1.5rem;
 }
 
 .header-bar {
-    margin-bottom:1rem;
+    /*margin-bottom:1.5rem;*/
+    position:relative;
+    z-index: 10;
 }
 
 .footer-bar {
@@ -70,27 +73,21 @@ table {
     gap: 1.5rem;
 }
 
+.grid-header {
+    grid-template-columns: 1fr 2fr;
+}
+
 .grid-header .logo {
     grid-area: logo;
+    text-align: center;
 }
 
 .grid-header .logo img,
 .grid-footer .logo img {
     vertical-align: top;
-    height: 3.75rem;
+    height: 3.125rem;
     margin: 0;
     padding: 0;
-}
-
-.grid-header .title {
-    grid-area: title;
-    text-align: right;
-}
-
-.grid-header .title h1 {
-    font-size: 1rem;
-    margin:0;
-    padding:0;
 }
 
 .grid-header .navigation {
@@ -125,15 +122,19 @@ table {
 
 .grid-header {
     grid-template-areas:
-        'logo title'
-        'navigation navigation';
+        'logo'
+        'navigation';
     align-items:center;
 }
 
 @media (min-width:50rem) {
     .grid-header {
         grid-template-areas:
-            'logo navigation title';
+            'logo navigation';
+    }
+
+    .grid-header .logo {
+        text-align: left;
     }
 }
 
@@ -158,6 +159,108 @@ table {
 
 
 
+div.price_banner {
+    background-color: #452E66;
+    margin-bottom:1.5rem;
+    padding:1.5rem;
+    position:relative;
+    z-index: 5;
+    color:#FFF;
+}
+
+div#ga_section_title {grid-area: section_title;}
+div#ga_last_price {grid-area: last_price;}
+div#ga_24h_pchange {grid-area: price_change;}
+div#ga_24h_volume {grid-area: volume;}
+div#ga_24h_vchange {grid-area: volume_change;}
+div#ga_market_cap {grid-area: market_cap;}
+div#ga_fd_market_cap {grid-area: fd_market_cap;}
+
+div.price_banner .grid {
+    grid-template-columns: repeat(3, 1fr);
+    font-size: .8rem;
+    grid-template-areas:    "section_title section_title section_title"
+                            "last_price market_cap fd_market_cap"
+                            "price_change volume volume_change";
+}
+
+div.price_banner .pb_title {
+    font-family: Helvetica, sans-serif;
+    white-space: nowrap;
+    line-height: 1rem;
+    color:#f5f7f9;
+}
+
+div.price_banner .pb_value {
+    font-family: monospace;
+    font-weight: bold;
+    white-space: nowrap;
+    line-height: 1rem;
+}
+
+div.price_banner h2 {
+    color: #f5f7f9;
+    margin:0;
+    line-height: 1rem;
+    font-size: .9rem;
+}
+
+@media (min-width:76rem) {
+    div.price_banner h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width:60rem) {
+    div.price_banner h2 {
+        line-height: 2rem;
+    }
+    div.price_banner .grid {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-areas:    "section_title last_price price_change volume volume_change market_cap fd_market_cap";
+    }
+}
+
+
+
+
+
+
+div #ga_supply {grid-area: supply;}
+div #ga_exchanges {grid-area: exchanges;}
+div #ga_staking {grid-area: staking;}
+div #ga_validators {grid-area: validators;}
+div #ga_bridged {grid-area: bridged;}
+
+div.metrics {
+    margin-bottom:1.5rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:    "supply"
+                            "exchanges"
+                            "staking"
+                            "validators"
+                            "bridged";
+}
+
+@media (min-width:50rem) {
+    div.metrics {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:    "supply exchanges"
+                                "staking bridged"
+                                "validators validators";
+    }
+}
+
+@media (min-width:76rem) {
+    div.metrics {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:    "supply exchanges staking"
+                                "supply exchanges validators"
+                                "supply exchanges bridged";
+    }
+}
+
+
 
 
 
@@ -175,7 +278,7 @@ div.metrics-container {
     background-color: #FFF;
     padding:20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px -5px rgba(0,0,0,.1);
+    box-shadow: 0px 4px 14px rgb(0 0 0 / 6%);
 }
 
 div.metrics-container .block {
@@ -197,7 +300,7 @@ div.wallets-container table {
 }
 
 table.show-table th {
-    background-color:#a566ff;
+    background-color:#452E66;
     color:#FFF;
     text-align: left;
     font-size: 1.2rem;

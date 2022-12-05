@@ -35,10 +35,7 @@
         <div class="header-bar">
             <div class="container grid grid-header">
                 <div class="logo">
-                    <img src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" />
-                </div>
-                <div class="title">
-                    <h1><a href="/">EWChain.io</a> | Energy Web's unofficial community dashboard</h1>
+                    <img src="/img/ewchain_logo.svg" />
                 </div>
                 <div class="navigation">
                     <ul>
@@ -55,7 +52,7 @@
         <div class="footer-bar">
             <div class="container grid grid-footer">
                 <div class="logo">
-                    <img src="https://www.energyweb.org/wp-content/uploads/2021/10/energyweb-logo-black.svg" />
+                    <img src="/img/ewchain_logo.svg" />
                 </div>
                 <div class="credits">
                     <a href="/">EWChain.io</a><br />
