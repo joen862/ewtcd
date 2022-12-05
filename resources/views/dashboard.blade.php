@@ -232,7 +232,7 @@
         </div>
 
         <div id="ga_bridged" class="block">
-            <h2>Bridged Token (EWTB)</h2>
+            <h2>Bridged (EWTB)</h2>
             <table>
                 <tr>
                     <td class="row-title">Minted:</td>
