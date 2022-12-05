@@ -14,10 +14,13 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{{ $title ?? 'Community Dashboard - Energy Web (unofficial)' }}</title>
-
         <link rel="icon" href="/img/cropped-ew-favicon-32x32.png" sizes="32x32">
+
+        <title>{{ $title ?? 'Community Dashboard - Energy Web Chain (unofficial)' }}</title>
+
+        <!-- JS libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +32,7 @@
 
         <!-- Stylesheets -->
         <link href="{{ URL::asset('/css/normalize.css') }}"  rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="{{ URL::asset('/css/main.css') }}"  rel="stylesheet">
 
     </head>

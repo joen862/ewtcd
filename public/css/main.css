@@ -253,10 +253,9 @@ div.metrics {
 
 @media (min-width:76rem) {
     div.metrics {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:    "supply exchanges staking"
-                                "supply exchanges validators"
-                                "supply exchanges bridged";
+        grid-template-columns: 3fr 2fr 2fr 2fr;
+        grid-template-areas:    "supply exchanges staking bridged"
+                                "supply exchanges validators validators";
     }
 }
 
@@ -271,6 +270,23 @@ div.metrics-container {
     gap:20px;
     margin: 0 0 20px 0;
 }
+
+
+
+
+
+.dataTables_wrapper .dataTables_filter {
+    float:none;
+    text-align: left;
+    margin-bottom:1rem;
+}
+
+div.dataTables_filter label {
+    font-weight: bold;
+
+}
+
+
 
 
 
@@ -326,10 +342,6 @@ td.right {
     text-align: right;
 }
 
-.text-right {
-    text-align: right;
-}
-
 .metrics-container .block td {
     background: none;
 }
@@ -344,5 +356,12 @@ td.row-subtitle {
     padding: 0 20px 0 20px;
 }
 
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
 
 
