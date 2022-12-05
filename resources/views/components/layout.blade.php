@@ -17,6 +17,8 @@
 
         <title>{{ $title ?? 'Community Dashboard - Energy Web (unofficial)' }}</title>
 
+        <link rel="icon" href="/img/cropped-ew-favicon-32x32.png" sizes="32x32">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

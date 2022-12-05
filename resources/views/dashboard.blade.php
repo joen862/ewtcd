@@ -95,7 +95,7 @@
                 </tr>
 
                 <tr>
-                    <td class="row-title">Circulating Supply <i class="fa fa-light fa-circle-info" title="The total circulating supply of EWT is fetched from https://supply.energyweb.org and is confirmed by EW to be correct. It seems to be the tot supply minus the Team, Community Fund and Holding (unclaimed Grid Singularity) wallets."></td>
+                    <td class="row-title">Circulating Supply <i class="fa fa-light fa-circle-info" title="The total circulating supply of EWT is fetched from https://supply.energyweb.org and is confirmed by EW to be correct. It seems to be the tot supply minus the Team, Community Fund and Distribution Contract wallets."></td>
                     <td class="monospace">{{number_format($data['circulating-supply'])}}</td>
                 </tr>
                 <tr>
@@ -103,7 +103,7 @@
                 </tr>
             </table>
 
-            <p><b>*</b> The distribution contract still holds the 5m EWT allocated to Grid Singularity</p>
+            <p><b>*</b> The distribution contract still holds the 5m EWT allocated to Founder 1</p>
         </div>
 
         <div id="ga_exchanges" class="block">
