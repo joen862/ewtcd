@@ -293,14 +293,14 @@
                         <td>Validator Block Reward</td>
                         <td>Allocated to block validation rewards, and released continuously (on a per-block basis) over a period of 10 years in a logarithmic curve</td>
                         <td class="monospace">10,000,000</td>
-                        <td class="monospace">{{number_format($data['active-miners-holding']+$data['inactive-miners-holding'])}}</td>
+                        <td class="monospace">{{number_format($data['active-miners-holding'])}}</td>
                         <td>n/a</td>
                     </tr>
                     <tr>
                         <td rowspan="2">Founder Tokens</td>
                         <td rowspan="2">Allocated to EWF co-founders Rocky Mountain Institute and Grid Singularity</td>
                         <td rowspan="2" class="monospace">10,000,000</td>
-                        <td class="monospace">5,000,000</td>
+                        <td class="monospace">{{number_format($wallets['holding']['balance'])}}</td>
                         <td class="monospace">0</td>
                     </tr>
                     <tr>
@@ -327,9 +327,13 @@
                         <td class="monospace">335,000</td>
                     </tr>
                     <tr>
-                        <th colspan="2" style="text-align:right;">Total</th>
-                        <th class="monospace">100,000,000</th>
-                        <th colspan="2"></th>
+                        <th colspan="2" class="text-right">Total</th>
+                        <th class="monospace text-right">100,000,000</th>
+                        <th class="text-right">
+                            <span class="monospace">{{number_format($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])}}</span><br />
+                            <span class="note">{{number_format(($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])/$data['total']*100)}}% of Total Supply</span>
+                        </th>
+                        <th></th>
                     </tr>
 
                 </table>
