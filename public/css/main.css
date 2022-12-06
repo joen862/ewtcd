@@ -323,6 +323,10 @@ table.show-table th {
     padding:5px 10px;
 }
 
+table.show-table th.text-right {
+    text-align: right;
+}
+
 table.show-table td {
     padding:5px 10px;
     background-color:#f6f7f8;
@@ -332,6 +336,15 @@ td.monospace,
 th.monospace {
     font-family: monospace;
     text-align: right;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+span.note {
+    font-weight: normal;
+    font-size: 1rem;
 }
 
 td.column-title {
@@ -362,6 +375,10 @@ td.row-subtitle {
 
 .text-left {
     text-align: left;
+}
+
+th {
+    vertical-align: top;
 }
 
 
