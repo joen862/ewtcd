@@ -323,6 +323,10 @@ table.show-table th {
     padding:5px 10px;
 }
 
+table.show-table thead th {
+    white-space: nowrap;
+}
+
 table.show-table th.text-right {
     text-align: right;
 }
