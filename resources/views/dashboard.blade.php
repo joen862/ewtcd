@@ -263,79 +263,83 @@
             <div class="block">
                 <h2>Token distribution</h2>
                 <table class="show-table">
-                    <tr>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Token Allocation <i class="fa fa-normal fa-circle-info" title="This is the amount of EWT that was given by the holding contract. See: https://explorer.energyweb.org/address/0x1204700000000000000000000000000000000004/contracts#address-tabs"></i></th>
-                        <th>Current Balance  <i class="fa fa-normal fa-circle-info" title="The current balance of the wallet that received the Token Allocation OR the sum of wallets it is distributed to. E.g. in case of RMI"></i></th>
-                        <th>Moved <i class="fa fa-normal fa-circle-info" title="Moved is the difference between the Token Allocation and the Current Balance. These tokens have moved to subsequent addresses. It does not neccesarily mean the tokens have been moved to an exchange or sold. In case of RMI the tokens were distributed over 10 wallets that are tracked. We try to analyse more wallets."></i></th>
-                    </tr>
-                    <tr>
-                        <td>EWF Operating Fund</td>
-                        <td>Tokens for EWF operations</td>
-                        <td class="monospace">10,901,792</td>
-                        <td rowspan="2" class="monospace">{{number_format($wallets['team']['balance'])}}</td>
-                        <td rowspan="2" class="monospace">{{number_format(20901792-$wallets['team']['balance'])}}</td>
-                    </tr>
-                    <tr>
-                        <td>EWF Endowment</td>
-                        <td>Tokens intended for additional technology development in support of EWF mission</td>
-                        <td class="monospace">10,000,000</td>
-                    </tr>
-                    <tr>
-                        <td>EWF Community Fund</td>
-                        <td>Community fund tokens will be used to support development of new technologies in the EWF ecosystem</td>
-                        <td class="monospace">37,900,000</td>
-                        <td class="monospace">{{number_format($wallets['community']['balance'])}}</td>
-                        <td>n/a</td>
-                    </tr>
-                    <tr>
-                        <td>Validator Block Reward</td>
-                        <td>Allocated to block validation rewards, and released continuously (on a per-block basis) over a period of 10 years in a logarithmic curve</td>
-                        <td class="monospace">10,000,000</td>
-                        <td class="monospace">{{number_format($data['active-miners-holding'])}}</td>
-                        <td>n/a</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">Founder Tokens</td>
-                        <td rowspan="2">Allocated to EWF co-founders Rocky Mountain Institute and Grid Singularity</td>
-                        <td rowspan="2" class="monospace">10,000,000</td>
-                        <td class="monospace">{{number_format($wallets['holding']['balance'])}}</td>
-                        <td class="monospace">0</td>
-                    </tr>
-                    <tr>
-                        <td class="monospace">{{number_format($data['founder2-total'])}}</td>
-                        <td class="monospace">{{number_format(5000000-$data['founder2-total'])}}</td>
-                    </tr>
-                    <tr>
-                        <td>Round A Affiliates</td>
-                        <td>Allocated to the 10 initial Affiliates of EWF</td>
-                        <td class="monospace">5,000,000</td>
-                        <td class="monospace">{{number_format($data['rounda-total'])}}</td>
-                        <td class="monospace">{{number_format(5000000-$data['rounda-total'])}}</td>
-                    </tr>
-                    <tr>
-                        <td>Round B Affiliates</td>
-                        <td>Allocated to Affiliates who joined EWF in a B round of fundraising</td>
-                        <td class="monospace">15,863,208</td>
-                        <td rowspan="2" class="monospace">{{number_format($data['roundbc-total'])}}</td>
-                        <td rowspan="2" class="monospace">{{number_format(16198208-$data['roundbc-total'])}}</td>
-                    </tr>
-                    <tr>
-                        <td>Round C Affiliates</td>
-                        <td>Allocated to Affiliates who joined EWF</td>
-                        <td class="monospace">335,000</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" class="text-right">Total</th>
-                        <th class="monospace text-right">100,000,000</th>
-                        <th class="text-right">
-                            <span class="monospace">{{number_format($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])}}</span><br />
-                            <span class="note">{{number_format(($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])/$data['total']*100)}}% of Total Supply</span>
-                        </th>
-                        <th></th>
-                    </tr>
-
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Token Allocation <i class="fa fa-normal fa-circle-info" title="This is the amount of EWT that was given by the holding contract. See: https://explorer.energyweb.org/address/0x1204700000000000000000000000000000000004/contracts#address-tabs"></i></th>
+                            <th>Lockup Period <i class="fa fa-normal fa-circle-info" title="All tokens have been released. There are no more tokens locked up."></i></th>
+                            <th>Current Balance  <i class="fa fa-normal fa-circle-info" title="The current balance of the wallet that received the Token Allocation OR the sum of wallets it is distributed to. E.g. in case of RMI"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EWF Operating Fund</td>
+                            <td>Tokens for EWF operations</td>
+                            <td class="monospace">10,901,792</td>
+                            <td>n/a</td>
+                            <td rowspan="2" class="monospace">{{number_format($wallets['team']['balance'])}}</td>
+                        </tr>
+                        <tr>
+                            <td>EWF Endowment</td>
+                            <td>Tokens intended for additional technology development in support of EWF mission</td>
+                            <td class="monospace">10,000,000</td>
+                            <td>3 months</td>
+                        </tr>
+                        <tr>
+                            <td>EWF Community Fund</td>
+                            <td>Community fund tokens will be used to support development of new technologies in the EWF ecosystem. Released linearly over 10 years</td>
+                            <td class="monospace">37,900,000</td>
+                            <td>n/a</td>
+                            <td class="monospace">{{number_format($wallets['community']['balance'])}}</td>
+                        </tr>
+                        <tr>
+                            <td>Validator Block Reward</td>
+                            <td>Allocated to block validation rewards, and released continuously (on a per-block basis) over a period of 10 years in a logarithmic curve</td>
+                            <td class="monospace">10,000,000</td>
+                            <td>n/a</td>
+                            <td class="monospace">{{number_format($data['active-miners-holding'])}}</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Founder Tokens</td>
+                            <td rowspan="2">Allocated to EWF co-founders Rocky Mountain Institute and Grid Singularity</td>
+                            <td rowspan="2" class="monospace">10,000,000</td>
+                            <td rowspan="2">24 months</td>
+                            <td class="monospace">{{number_format($wallets['holding']['balance'])}}</td>
+                        </tr>
+                        <tr>
+                            <td class="monospace">{{number_format($data['founder2-total'])}}</td>
+                        </tr>
+                        <tr>
+                            <td>Round A Affiliates</td>
+                            <td>Allocated to the 10 initial Affiliates of EWF</td>
+                            <td class="monospace">5,000,000</td>
+                            <td>3 months</td>
+                            <td class="monospace">{{number_format($data['rounda-total'])}}</td>
+                        </tr>
+                        <tr>
+                            <td>Round B Affiliates</td>
+                            <td>Allocated to Affiliates who joined EWF in a B round of fundraising</td>
+                            <td class="monospace">15,863,208</td>
+                            <td>6 months</td>
+                            <td rowspan="2" class="monospace">{{number_format($data['roundbc-total'])}}</td>
+                        </tr>
+                        <tr>
+                            <td>Round C Affiliates</td>
+                            <td>Allocated to Affiliates who joined EWF</td>
+                            <td class="monospace">335,000</td>
+                            <td>6 months</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" class="text-right">Total</th>
+                            <th class="monospace text-right">100,000,000</th>
+                            <th></th>
+                            <th class="text-right">
+                                <span class="monospace">{{number_format($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])}}</span><br />
+                                <span class="note">{{number_format(($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])/$data['total']*100)}}% of Total Supply</span>
+                            </th>
+                        </tr>
+                    </tbody>
                 </table>
 
             </div>
