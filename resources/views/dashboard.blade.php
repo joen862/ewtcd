@@ -172,16 +172,28 @@
             <h2>Staking Pools</h2>
             <table>
                 <tr>
-                    <td class="row-title">Booster Pool:</td>
+                    <td class="row-title">🔴 Booster Pool:</td>
                     <td class="monospace">{{number_format($wallets['booster']['balance'])}}</td>
                 </tr>
                 <tr>
-                    <td class="row-title">EEA Pool:</td>
+                    <td class="row-title">🔵 EEA Pool:</td>
                     <td class="monospace">{{number_format($wallets['eea']['balance'])}}</td>
                 </tr>
                 <tr>
-                    <td class="row-title">CRC Pool:</td>
+                    <td class="row-title">🟣 CRC Pool:</td>
                     <td class="monospace">{{number_format($wallets['crc']['balance'])}}</td>
+                </tr>
+                <tr>
+                    <td class="row-title">⚪️ Silver Pool:</td>
+                    <td class="monospace">🔜 22/12/22</td>
+                </tr>
+                <tr>
+                    <td class="row-title">🟠 Gold Pool:</td>
+                    <td class="monospace">🔜 22/12/22</td>
+                </tr>
+                <tr>
+                    <td class="row-title">🟢 Green Pool:</td>
+                    <td class="monospace">🔜 13/12/22</td>
                 </tr>
                 <tr>
                     <td colspan="2">&nbsp;</td>
