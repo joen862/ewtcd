@@ -184,6 +184,10 @@
                     <td class="monospace">{{number_format($wallets['crc']['balance'])}}</td>
                 </tr>
                 <tr>
+                    <td class="row-title">🟢 Green Pool:</td>
+                    <td class="monospace">{{number_format($wallets['greenpool']['balance'])}}</td>
+                </tr>
+                <tr>
                     <td class="row-title">⚪️ Silver Pool:</td>
                     <td class="monospace">🔜 22/12/22</td>
                 </tr>
@@ -192,18 +196,14 @@
                     <td class="monospace">🔜 22/12/22</td>
                 </tr>
                 <tr>
-                    <td class="row-title">🟢 Green Pool:</td>
-                    <td class="monospace">🔜 13/12/22</td>
-                </tr>
-                <tr>
                     <td colspan="2">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="row-title">Total Staked:</td>
+                    <td class="row-title">Total in staking pools:</td>
                     <td class="monospace">{{number_format($data['total-staked'])}}</td>
                 </tr>
                 <tr>
-                    <td class="row-title">Staked EWT %:</td>
+                    <td class="row-title">% of circulating supply:</td>
                     <td class="monospace">{{number_format($data['total-staked']/$data['circulating-supply']*100,2)}}%</td>
                 </tr>
                 <tr>
