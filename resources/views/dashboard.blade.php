@@ -78,6 +78,10 @@
                     <td class="monospace">{{number_format($data['founder2-total'])}}</td>
                 </tr>
                 <tr>
+                    <td class="row-subtitle">Validator Block Rewards<b>**</b>:</td>
+                    <td class="monospace">{{number_format($data['unknown-miners-holding']+$data['active-miners-holding'])}}</td>
+                </tr>
+                <tr>
                     <td class="row-subtitle">Round A Affiliates:</td>
                     <td class="monospace">{{number_format($data['rounda-total'])}}</td>
                 </tr>
@@ -86,8 +90,8 @@
                     <td class="monospace">{{number_format($data['roundbc-total'])}}</td>
                 </tr>
                 <tr>
-                    <td class="row-subtitle">All other:</td>
-                    <td class="monospace">{{number_format($data['circulating-supply']-$data['founder2-total']-$data['rounda-total']-$data['roundbc-total'])}}</td>
+                    <td class="row-subtitle">Other in circulation:</td>
+                    <td class="monospace">{{number_format($data['circulating-supply']-$data['founder2-total']-$data['rounda-total']-$data['roundbc-total']-$data['unknown-miners-holding']-$data['active-miners-holding'])}}</td>
                 </tr>
 
                 <tr>
@@ -104,6 +108,7 @@
             </table>
 
             <p><b>*</b> The distribution contract still holds the 5m EWT allocated to Founder 1</p>
+            <p><b>**</b> The validator block rewards fall under the <a href="https://energy-web-foundation.gitbook.io/energy-web/technology/trust-layer-energy-web-chain/energy-web-chain-governance" target="_blank">validator code of conduct</a> <i class="fa fa-external-link"></i></p>
         </div>
 
         <div id="ga_exchanges" class="block">
@@ -205,6 +210,10 @@
                 <tr>
                     <td class="row-title">% of circulating supply:</td>
                     <td class="monospace">{{number_format($data['total-staked']/$data['circulating-supply']*100,2)}}%</td>
+                </tr>
+                <tr>
+                    <td class="row-title">% of other in circulation:</td>
+                    <td class="monospace">{{number_format($data['total-staked']/($data['circulating-supply']-$data['founder2-total']-$data['rounda-total']-$data['roundbc-total']-$data['unknown-miners-holding']-$data['active-miners-holding'])*100,2)}}%</td>
                 </tr>
                 <tr>
                     <td colspan="2">&nbsp;</td>
@@ -310,7 +319,7 @@
                             <td>Allocated to block validation rewards, and released continuously (on a per-block basis) over a period of 10 years in a logarithmic curve</td>
                             <td class="monospace">10,000,000</td>
                             <td>n/a</td>
-                            <td class="monospace">{{number_format($data['active-miners-holding'])}}</td>
+                            <td class="monospace">{{number_format($data['unknown-miners-holding']+$data['active-miners-holding'])}}</td>
                         </tr>
                         <tr>
                             <td rowspan="2">Founder Tokens</td>
@@ -347,8 +356,8 @@
                             <th class="monospace text-right">100,000,000</th>
                             <th></th>
                             <th class="text-right">
-                                <span class="monospace">{{number_format($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])}}</span><br />
-                                <span class="note">{{number_format(($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])/$data['total']*100)}}% of Total Supply</span>
+                                <span class="monospace">{{number_format($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$data['unknown-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])}}</span><br />
+                                <span class="note">{{number_format(($wallets['team']['balance']+$wallets['community']['balance']+$data['active-miners-holding']+$data['unknown-miners-holding']+$wallets['holding']['balance']+$data['founder2-total']+$data['rounda-total']+$data['roundbc-total'])/$data['total']*100)}}% of Total Supply</span>
                             </th>
                         </tr>
                     </tbody>
