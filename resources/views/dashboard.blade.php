@@ -90,8 +90,12 @@
                     <td class="monospace">{{number_format($data['roundbc-total'])}}</td>
                 </tr>
                 <tr>
+                    <td class="row-subtitle">Exchanges:</td>
+                    <td class="monospace">{{number_format($data['total-exchanges'])}}</td>
+                </tr>
+                <tr>
                     <td class="row-subtitle">Other in circulation:</td>
-                    <td class="monospace">{{number_format($data['circulating-supply']-$data['founder2-total']-$data['rounda-total']-$data['roundbc-total']-$data['unknown-miners-holding']-$data['active-miners-holding'])}}</td>
+                    <td class="monospace">{{number_format($data['circulating-supply']-$data['founder2-total']-$data['rounda-total']-$data['roundbc-total']-$data['unknown-miners-holding']-$data['active-miners-holding']-$data['total-exchanges'])}}</td>
                 </tr>
 
                 <tr>
@@ -213,7 +217,7 @@
                 </tr>
                 <tr>
                     <td class="row-title">% of other in circulation:</td>
-                    <td class="monospace">{{number_format($data['total-staked']/($data['circulating-supply']-$data['founder2-total']-$data['rounda-total']-$data['roundbc-total']-$data['unknown-miners-holding']-$data['active-miners-holding'])*100,2)}}%</td>
+                    <td class="monospace">{{number_format($data['total-staked']/($data['circulating-supply']-$data['founder2-total']-$data['rounda-total']-$data['roundbc-total']-$data['unknown-miners-holding']-$data['active-miners-holding']-$data['total-exchanges'])*100,2)}}%</td>
                 </tr>
                 <tr>
                     <td colspan="2">&nbsp;</td>
