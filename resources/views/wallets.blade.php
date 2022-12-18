@@ -8,7 +8,7 @@
                     <thead>
                         <tr>
                             <!--<th style="width:10rem;">Category</th>-->
-                            <th style="width:20rem;">Category</th>
+                            <th style="width:10rem;">Category</th>
                             <th style="width:20rem;">Label</th>
                             <th style="width:10rem;">Address</th>
                             <th style="width:10rem;">Start Balance <i class="fa fa-normal fa-circle-info" title="This is the amount that the wallet initially received from the holding contract (token allocation) or from such wallet (in case of Founder2)"></th>
