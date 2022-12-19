@@ -37,7 +37,7 @@
         $(document).ready( function () {
             $('#tracked_wallets').DataTable({
                 paging:false,
-                order:[[3,'desc']],
+                order:[[4,'desc']],
             });
         } );
     </script>
