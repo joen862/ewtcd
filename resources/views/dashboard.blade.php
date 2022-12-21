@@ -193,16 +193,12 @@
                     <td class="monospace">{{number_format($wallets['crc']['balance'])}}</td>
                 </tr>
                 <tr>
+                    <td class="row-title">🟣 CRC extra rewards:</td>
+                    <td class="monospace">{{number_format($wallets['silver-gold-rewards']['balance'])}}</td>
+                </tr>
+                <tr>
                     <td class="row-title">🟢 Green Pool:</td>
                     <td class="monospace">{{number_format($wallets['greenpool']['balance'])}}</td>
-                </tr>
-                <tr>
-                    <td class="row-title">⚪️ Silver Pool:</td>
-                    <td class="monospace">🔜 22/12/22</td>
-                </tr>
-                <tr>
-                    <td class="row-title">🟠 Gold Pool:</td>
-                    <td class="monospace">🔜 22/12/22</td>
                 </tr>
                 <tr>
                     <td colspan="2">&nbsp;</td>
