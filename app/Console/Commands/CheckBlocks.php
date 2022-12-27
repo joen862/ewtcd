@@ -19,6 +19,8 @@ class CheckBlocks extends Command
 
     public function handle() {
 
+        $start_time = microtime(true);
+
         $this->info('Start tracking new blocks');
 
         // Fetch the lates block number from EWC
@@ -30,10 +32,10 @@ class CheckBlocks extends Command
 
         // Define which blocks to check
         $from_block = $last_checked+1;
-        $to_block = $from_block+50;
+        $to_block = $from_block+500;
 
         // Loop through unchecked blocks
-        for($i=$from_block; $i <= $to_block; $i++) {
+        for($i=$from_block; $i < $to_block; $i++) {
 
             $this->line("checking block #$i");
 
@@ -45,12 +47,13 @@ class CheckBlocks extends Command
                 $miner = new Wallet;
                 $miner->label = "Unknown miner";
                 $miner->slug = substr($block_data->miner,0,6);
-                $miner->category = "Active Validators";
+                $miner->category = "Miner";
                 $miner->address = $block_data->miner;
                 $miner->balance = $this->getBalance($block_data->miner);
                 $miner->notes = "Automatically added by tracking block (#".hexdec($block_data->number).")";
                 $miner->balance_last_update = date('Y-m-d H:i:s');
                 $miner->token_allocation = 0;
+                $miner->validator_id = 0;
                 $miner->save();
 
                 $this->info('miner added: '.$block_data->miner);
@@ -64,29 +67,31 @@ class CheckBlocks extends Command
 
                 foreach($block_data->transactions as $transaction_data) {
 
-                    if($transaction_data->value > 0) {
+                    $value = hexdec($transaction_data->value)/1000000000000000000;
+
+                    if($value > 0) {
                         $tx = new Transaction;
                         $tx->hash = $transaction_data->hash;
                         $tx->blockNumber = hexdec($transaction_data->blockNumber);
                         $tx->from = $transaction_data->from;
                         $tx->to = $transaction_data->to;
-                        $tx->value = hexdec($transaction_data->value)/1000000000000000000;
-                        $tx->condition = $transaction_data->condition;
-                        $tx->creates = $transaction_data->creates;
+                        $tx->value = $value;
+                        //$tx->condition = $transaction_data->condition;
+                        //$tx->creates = $transaction_data->creates;
                         $tx->gas = hexdec($transaction_data->gas);
                         $tx->gasPrice = hexdec($transaction_data->gasPrice);
                         $tx->input = $transaction_data->input;
                         $tx->nonce = hexdec($transaction_data->nonce);
-                        $tx->publicKey = $transaction_data->publicKey;
+                        //$tx->publicKey = $transaction_data->publicKey;
                         $tx->r = $transaction_data->r;
-                        $tx->raw = $transaction_data->raw;
+                        //$tx->raw = $transaction_data->raw;
                         $tx->s = $transaction_data->s;
                         $tx->standardV = isset($transaction_data->standardV) ? hexdec($transaction_data->standardV) : '';
                         $tx->transactionIndex = hexdec($transaction_data->transactionIndex);
                         $tx->type = hexdec($transaction_data->type);
                         $tx->blockHash = $transaction_data->blockHash;
                         $tx->v = hexdec($transaction_data->v);
-                        $tx->chainId = hexdec($transaction_data->chainId);
+                        //$tx->chainId = hexdec($transaction_data->chainId);
 
                         $tx->save();
 
@@ -108,13 +113,15 @@ class CheckBlocks extends Command
             }
         }
 
-        $this->info('Done');
+        $time_elapsed = microtime(true) - $start_time;
+
+        $this->info('Done in '.$time_elapsed.' seconds. '.round(($to_block-$from_block)/$time_elapsed).' blocks per second');
 
         return Command::SUCCESS;
     }
 
     private function connectRPC() {
-        $web3 = new Web3(new HttpProvider(new HttpRequestManager("https://rpc.energyweb.org/")));
+        $web3 = new Web3(new HttpProvider(new HttpRequestManager(env('JSON_RPC'))));
         return $web3->eth;
     }
 
