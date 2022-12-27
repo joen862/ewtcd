@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->command('checkblocks')->everyMinute();
+        $schedule->command('checkblocks')->everyMinute()->withoutOverlapping(5);
 
         $schedule->call(function() {
             $market = new Market;
