@@ -32,7 +32,7 @@ class CheckBlocks extends Command
 
         // Define which blocks to check
         $from_block = $last_checked+1;
-        $to_block = $from_block+500;
+        $to_block = $from_block+5000;
 
         // Loop through unchecked blocks
         for($i=$from_block; $i < $to_block; $i++) {
