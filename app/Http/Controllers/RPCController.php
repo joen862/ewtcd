@@ -92,8 +92,7 @@ class RPCController extends Controller {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://rpc.energyweb.org/",
-            //CURLOPT_URL => "localhost:8545",
+            CURLOPT_URL => env('JSON_RPC','https://rpc.energyweb.org/'),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
