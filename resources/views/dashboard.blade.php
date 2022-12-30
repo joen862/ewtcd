@@ -227,7 +227,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td class="column-title right">Validators</td>
-                    <td class="column-title right">Mining wallets</td>
+                    <td class="column-title right">Wallets</td>
                     <td class="column-title right">Holding EWT</td>
                 </tr>
                 <tr>

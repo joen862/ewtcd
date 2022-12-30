@@ -53,14 +53,14 @@ class DashboardController extends Controller {
         $data['total-exchanges'] = $this->sumOfCategory('Exchanges',$wallets);
 
         // get miner counts
-        $data['active-miners-count'] = Wallet::where('category','Miner')->whereRelation('Validator','active',true)->count();
-        $data['inactive-miners-count']= Wallet::where('category','Miner')->whereRelation('Validator','active',false)->count();
-        $data['unknown-miners-count']= Wallet::where('category','Miner')->doesntHave('Validator')->count();
+        $data['active-miners-count'] = Wallet::where('category','Validator')->whereRelation('Validator','active',true)->count();
+        $data['inactive-miners-count']= Wallet::where('category','Validator')->whereRelation('Validator','active',false)->count();
+        $data['unknown-miners-count']= Wallet::where('category','Validator')->doesntHave('Validator')->count();
 
         // get miner holdings
-        $data['active-miners-holding'] = Wallet::where('category','Miner')->whereRelation('Validator','active',true)->sum('balance');
-        $data['inactive-miners-holding']= Wallet::where('category','Miner')->whereRelation('Validator','active',false)->sum('balance');
-        $data['unknown-miners-holding']= Wallet::where('category','Miner')->doesntHave('Validator')->sum('balance');
+        $data['active-miners-holding'] = Wallet::where('category','Validator')->whereRelation('Validator','active',true)->sum('balance');
+        $data['inactive-miners-holding']= Wallet::where('category','Validator')->whereRelation('Validator','active',false)->sum('balance');
+        $data['unknown-miners-holding']= Wallet::where('category','Validator')->doesntHave('Validator')->sum('balance');
 
         // get validator counts
         $data['active-validators-count'] = Validator::where('active',true)->count();
