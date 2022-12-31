@@ -27,7 +27,7 @@ class CheckBlocks extends Command
         $latest_onchain_blocknumber = $this->latestBlockNumber();
 
         // Fetch the highest block checked from DB
-        $block = Block::max('block_number');
+        $block = Block::orderBy('block_number', 'desc')->first();
         $last_checked = $block->block_number;
 
         // Define which blocks to check
@@ -102,9 +102,14 @@ class CheckBlocks extends Command
             }
 
             // update last checked block in DB
-            $block->block_number = hexdec($block_data->number);
-            $block->timestamp = date('Y-m-d H:i:s',hexdec($block_data->timestamp));
-            $block->save();
+            //$block->block_number = hexdec($block_data->number);
+            //$block->timestamp = date('Y-m-d H:i:s',hexdec($block_data->timestamp));
+            //$block->save();
+            Block::create([
+                'block_number' => hexdec($block_data->number),
+                'timestamp' => date('Y-m-d H:i:s',hexdec($block_data->timestamp)),
+            ]);
+
 
             // Break in case we are at the latest block
             if($i == $latest_onchain_blocknumber) {
