@@ -17,7 +17,6 @@ return new class extends Migration
             $table->decimal('value_decimal', 30, 18)->nullable()->after('value');
             $table->index('from');
             $table->index('to');
-            $table->index('value_decimal');
         });
     }
 
@@ -32,7 +31,6 @@ return new class extends Migration
             $table->dropColumn('value_decimal');
             $table->dropIndex('from');
             $table->dropIndex('to');
-            $table->dropIndex('value_decimal');
         });
     }
 };
