@@ -26,9 +26,9 @@ class CheckBlocks extends Command
         // Fetch the lates block number from EWC
         $latest_onchain_blocknumber = $this->latestBlockNumber();
 
-        // Fetch the latest block checked from DB
-        $block = Block::first();
-        $last_checked = $block->block;
+        // Fetch the highest block checked from DB
+        $block = Block::max('block_number');
+        $last_checked = $block->block_number;
 
         // Define which blocks to check
         $from_block = $last_checked+1;
@@ -102,7 +102,7 @@ class CheckBlocks extends Command
             }
 
             // update last checked block in DB
-            $block->block = hexdec($block_data->number);
+            $block->block_number = hexdec($block_data->number);
             $block->timestamp = date('Y-m-d H:i:s',hexdec($block_data->timestamp));
             $block->save();
 
