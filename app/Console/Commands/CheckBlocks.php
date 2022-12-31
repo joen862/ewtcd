@@ -76,6 +76,7 @@ class CheckBlocks extends Command
                         $tx->from = $transaction_data->from;
                         $tx->to = $transaction_data->to;
                         $tx->value = $value;
+                        $tx->value_decimal = $value;
                         //$tx->condition = $transaction_data->condition;
                         //$tx->creates = $transaction_data->creates;
                         $tx->gas = hexdec($transaction_data->gas);
