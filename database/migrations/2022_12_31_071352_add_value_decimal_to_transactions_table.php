@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('transactions', function (Blueprint $table) {
             $table->decimal('value_decimal', 30, 18)->nullable()->after('value');
-            $table->index('hash');
             $table->index('from');
             $table->index('to');
             $table->index('value_decimal');
@@ -31,7 +30,6 @@ return new class extends Migration
     {
         Schema::table('transactions', function (Blueprint $table) {
             $table->dropColumn('value_decimal');
-            $table->dropIndex('hash');
             $table->dropIndex('from');
             $table->dropIndex('to');
             $table->dropIndex('value_decimal');
