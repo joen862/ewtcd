@@ -22,7 +22,7 @@
                             <!--<td>{{$wallet['category']}}</td>-->
                             <td>{{$wallet['category']}}</td>
                             <td>{{$wallet['label']}}</td>
-                            <td class="text-left "><a href="https://explorer.energyweb.org/address/{{$wallet['address']}}/coin-balances#address-tabs" target="_blank">{{substr($wallet['address'],0,8)}}-{{substr($wallet['address'],36,6)}}</a><span style="display:none;">{{$wallet['address']}}</span></td>
+                            <td class="text-left "><a href="/address/{{$wallet['address']}}">{{substr($wallet['address'],0,8)}}-{{substr($wallet['address'],36,6)}}</a><span style="display:none;">{{$wallet['address']}}</span></td>
                             <td class="monospace text-right">{{number_format($wallet['token_allocation'])}}</td>
                             <td class="monospace text-right">{{number_format($wallet['balance'])}}</td>
                             <td>{{$wallet['notes']}}</td>
