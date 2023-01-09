@@ -1,7 +1,7 @@
 <x-layout>
 
-    <div class="price_banner">
-        <div class="container grid">
+    <div class="top-banner">
+        <div class="container grid market-details">
             <div id="ga_section_title">
                 <h2>Market EWT/USD:</h2>
             </div>

@@ -20,7 +20,7 @@ body {
     color: #452E66;
 }
 
-h2 {
+h1,h2 {
     margin:0 0 1rem 0;
     padding:0;
     color:#a566ff;
@@ -159,7 +159,10 @@ table {
 
 
 
-div.price_banner {
+
+
+
+div.top-banner {
     background-color: #452E66;
     margin-bottom:1.5rem;
     padding:1.5rem;
@@ -167,6 +170,17 @@ div.price_banner {
     z-index: 5;
     color:#FFF;
 }
+
+
+div#address-title {grid-area: address_title;}
+div#address-balance{grid-area: address_balance;}
+
+div.top-banner .address-details {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:    "address_title address_balance";
+}
+
+
 
 div#ga_section_title {grid-area: section_title;}
 div#ga_last_price {grid-area: last_price;}
@@ -176,7 +190,7 @@ div#ga_24h_vchange {grid-area: volume_change;}
 div#ga_market_cap {grid-area: market_cap;}
 div#ga_fd_market_cap {grid-area: fd_market_cap;}
 
-div.price_banner .grid {
+div.top-banner .market-details {
     grid-template-columns: repeat(3, 1fr);
     font-size: .8rem;
     grid-template-areas:    "section_title section_title section_title"
@@ -184,44 +198,62 @@ div.price_banner .grid {
                             "price_change volume volume_change";
 }
 
-div.price_banner .pb_title {
+div.top-banner .pb_title {
     font-family: Helvetica, sans-serif;
     white-space: nowrap;
     line-height: 1rem;
     color:#f5f7f9;
 }
 
-div.price_banner .pb_value {
+div.top-banner .pb_value {
     font-family: monospace;
     font-weight: bold;
     white-space: nowrap;
     line-height: 1rem;
 }
 
-div.price_banner h2 {
+
+span.address_category {
+    display: inline-block;
+    line-height: .75rem;
+    font-size: .75rem;
+    padding: .2rem;
+    margin-left: .2rem;
+    border-radius: .2rem;
+    vertical-align: top;
+    background-color: #a566ff;
+    color: #ffffff;
+}
+
+div.top-banner h2, div.top-banner h1 {
     color: #f5f7f9;
     margin:0;
     line-height: 1rem;
-    font-size: .9rem;
+    font-size: 1rem;
 }
 
 @media (min-width:76rem) {
-    div.price_banner h2 {
-        font-size: 1.25rem;
+    div.top-banner h2, div.top-banner h1 {
+        font-size: 1.5rem;
+        line-height: 2rem;
     }
 }
 
 @media (min-width:60rem) {
-    div.price_banner h2 {
+    div.market-details h2, div.market-details h1 {
         line-height: 2rem;
     }
-    div.price_banner .grid {
+    div.top-banner .market-details {
         grid-template-columns: repeat(7, 1fr);
         grid-template-areas:    "section_title last_price price_change volume volume_change market_cap fd_market_cap";
     }
 }
 
 
+
+.normal {
+    font-weight: normal;
+}
 
 
 
@@ -263,6 +295,9 @@ div.metrics {
 
 
 
+
+
+
 div.metrics-container {
     display: flex;
     justify-content: flex-start;
@@ -295,6 +330,10 @@ div.dataTables_filter label {
     padding:20px;
     border-radius: 5px;
     box-shadow: 0px 4px 14px rgb(0 0 0 / 6%);
+}
+
+.block.address_from {
+    margin-bottom: 1.5rem;
 }
 
 div.metrics-container .block {
@@ -344,6 +383,10 @@ th.monospace {
 
 .monospace {
     font-family: monospace;
+}
+
+.monospace.left {
+    text-align: left;
 }
 
 span.note {
